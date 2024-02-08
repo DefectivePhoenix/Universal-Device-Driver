@@ -1,35 +1,3 @@
-# ----------------------------------------------------------------------------
-# Copyright (c) PTC Inc. and/or all its affiliates. All rights reserved.
-# See License.txt in the project root for license information.
-# 
-# 
-# Name:        csvfile_to_tcp_with_watchdog.py
-# Description:  This script connects to companion Kepware Universal Device Driver profile 
-# to a specified IP and TCP port and watches a target directory for a CSV file of a specific name. 
-#
-# When the CSV file created, modified or overwritten, the script parses contents and sends 
-# as plain text in a JSON format to a listening UDD profile.
-# 
-# Expects CSV file formats like:
-# 
-#   column1,column2,column3
-#   string1,p1,50
-#   string2,p2,77 
-# 
-# Sends the data grouped by one selected column (e.g. column2) to the 
-# configured Kepware Universal Device Driver:
-# 
-#   {"p1": {"column1": "string1", "column2": "p1", "column3": "50"}, 
-#    "p2": {"column1": "string2", "column2": "p2", "column3": "77"}}
-# 
-# The data can then be accessed in Kepware using the following tag syntax:
-# 
-#  p1.column1
-#  p2.column3
-# 
-# MAKE SURE TO EDIT FILEPATH, FILENAME and COLUMN_KEY VARIABLES
-# ----------------------------------------------------------------------------
-
 import os
 import csv
 import configparser
